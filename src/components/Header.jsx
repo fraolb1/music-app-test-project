@@ -4,6 +4,7 @@ import { Box, Button, Flex, Text } from "rebass";
 import { Input } from "@rebass/forms";
 import { useDispatch } from "react-redux";
 import { addMusic } from "../state/musicState";
+import { Link } from "react-router-dom";
 
 const headerStyle = css`
   background-color: #f3f4f6;
@@ -28,6 +29,10 @@ const avatarStyle = css`
   justify-content: flex-end;
 `;
 
+const textStyle = css`
+  color: black;
+`;
+
 const Header = ({ handleSearch }) => {
   const dispatch = useDispatch();
   const data = {
@@ -47,7 +52,9 @@ const Header = ({ handleSearch }) => {
     <Flex css={headerStyle} alignItems={"center"}>
       <Box css={logoStyle}>
         <Text fontSize='24px' fontWeight='bold'>
-          Music
+          <Link css={textStyle} to='/'>
+            Music
+          </Link>
         </Text>
       </Box>
       <Box css={searchBarStyle}>
@@ -69,7 +76,7 @@ const Header = ({ handleSearch }) => {
       <Button onClick={handleAdd}>Add</Button>
       <Box css={avatarStyle}>
         <Text ml={15} fontSize='24px'>
-          Fira
+          USER A
         </Text>
       </Box>
     </Flex>

@@ -1,11 +1,16 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMusicsFetch } from "./state/musicState";
-import Header from "./components/Header";
 import MyComponent from "./components/MyComponent";
-import Sidebar from "./components/Sidebar";
 import "./App.css";
-import { Flex } from "rebass";
+import RootLayout from "./layout/RootLayout";
+import {
+  Route,
+  RouterProvider,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import MusicDetail from "./components/MusicDetail";
 
 function App() {
   const musics = useSelector((state) => state.musics.musics);
@@ -19,15 +24,15 @@ function App() {
     dispatch(getMusicsFetch());
   }, [dispatch]);
 
-  return (
-    <>
-      <Header handleSearch={handleSearch} />
-      <Flex flex={[1, 3]}>
-        <Sidebar />
-        <MyComponent searchQuery={searchQuery} />
-      </Flex>
-    </>
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/' element={<RootLayout handleSearch={handleSearch} />}>
+        <Route index element={<MyComponent searchQuery={searchQuery} />} />
+        <Route path='/:id' element={<MusicDetail />} />
+      </Route>
+    )
   );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -6,7 +6,7 @@ const sidebarStyle = css`
   width: 250px;
   background-color: #f3f4f6;
   color: #000;
-  min-height: 100vh;
+  min-height: 90vh;
   padding-top: 20px;
 `;
 

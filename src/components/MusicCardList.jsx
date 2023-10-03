@@ -5,6 +5,7 @@ import { Box, Flex, Text } from "rebass";
 import { FaPlayCircle } from "react-icons/fa"; // Import the play button icon
 import { useEffect, useState } from "react";
 import { editMusic } from "../state/musicState";
+import { Link } from "react-router-dom";
 
 const cardStyles = css`
   border: 1px solid #ccc;
@@ -41,6 +42,10 @@ const playButtonStyle = css`
   }
 `;
 
+const textStyle = css`
+  color: black;
+`;
+
 const Card = ({ artist, trackName, coverImage }) => {
   return (
     <Box css={cardStyles}>
@@ -75,9 +80,8 @@ const MusicCardList = ({ searchQuery }) => {
   };
 
   useEffect(() => {
-    // Filter music items based on searchQuery when it changes
     if (searchQuery === "") {
-      setDisplay(musics); // No search query, display all music items
+      setDisplay(musics);
     } else {
       const lowercaseQuery = searchQuery.toLowerCase();
       const new_list = musics.filter(
@@ -91,14 +95,14 @@ const MusicCardList = ({ searchQuery }) => {
   return (
     <Flex flexWrap={"wrap"} justifyContent={"space-around"}>
       {display.map((music) => (
-        <div key={music.id} onClick={() => handleEditing(music)}>
+        <Link css={textStyle} to={`/${music.id}`} key={music.id}>
           <Card
             artist={music.artist}
             trackName={music.title}
             coverImage={music.coverImage}
             handleEditing={handleEditing}
           />
-        </div>
+        </Link>
       ))}
     </Flex>
   );
