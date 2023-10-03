@@ -1,7 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Box, Flex, Text } from "rebass";
+import { Box, Button, Flex, Text } from "rebass";
 import { Input } from "@rebass/forms";
+import { useDispatch } from "react-redux";
+import { addMusic } from "../state/musicState";
 
 const headerStyle = css`
   background-color: #f3f4f6;
@@ -26,7 +28,21 @@ const avatarStyle = css`
   justify-content: flex-end;
 `;
 
-const Header = () => {
+const Header = ({ handleSearch }) => {
+  const dispatch = useDispatch();
+  const data = {
+    title: "Song Title 1",
+    artist: "Artist 21",
+    album: "Album 1",
+    coverImage: "https://example.com/cover-image-1.jpg",
+    duration: "3:45",
+    genre: "Pop",
+    releaseDate: "2022-01-15",
+    audioUrl: "https://example.com/audio/song1.mp3",
+  };
+  const handleAdd = () => {
+    dispatch(addMusic(data));
+  };
   return (
     <Flex css={headerStyle} alignItems={"center"}>
       <Box css={logoStyle}>
@@ -38,6 +54,7 @@ const Header = () => {
         <Input
           type='text'
           placeholder='Search...'
+          onChange={(e) => handleSearch(e.target.value)}
           sx={{
             backgroundColor: "white",
             color: "#000",
@@ -49,6 +66,7 @@ const Header = () => {
           }}
         />
       </Box>
+      <Button onClick={handleAdd}>Add</Button>
       <Box css={avatarStyle}>
         <Text ml={15} fontSize='24px'>
           Fira

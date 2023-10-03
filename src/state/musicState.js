@@ -6,15 +6,37 @@ const initialState = {
   isError: "",
 };
 
-const musicSlice = createSlice({
-  name: "music",
+const musicState = createSlice({
+  name: "musics",
   initialState,
   reducers: {
     getMusicsFetch: (state) => {
       state.isLoading = true;
     },
-    getMusicSucces: (state, action) => {
+    getMusicsSuccess: (state, action) => {
       state.musics = action.payload;
+      state.isLoading = false;
+    },
+    addMusic: (state, action) => {
+      state.isLoading = true;
+    },
+    addMusicSuccess: (state, action) => {
+      state.musics.push(action.payload);
+      state.isLoading = false;
+    },
+    editMusic: (state, action) => {
+      state.isLoading = true;
+    },
+    editMusicSucces: (state, action) => {
+      state.musics = state.musics.map((music) => {
+        if (music.id === action.payload.id) {
+          return {
+            ...music,
+            title: action.payload.title,
+          };
+        }
+        return music;
+      });
       state.isLoading = false;
     },
     getMusicError: (state, action) => {
@@ -24,7 +46,14 @@ const musicSlice = createSlice({
   },
 });
 
-export const { getMusicsFetch, getMusicSucces, getMusicError } =
-  musicSlice.actions;
+export const {
+  getMusicsFetch,
+  getMusicsSuccess,
+  getMusicError,
+  addMusic,
+  addMusicSuccess,
+  editMusic,
+  editMusicSucces,
+} = musicState.actions;
 
-export default musicSlice.reducer;
+export default musicState.reducer;

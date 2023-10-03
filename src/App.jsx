@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMusicsFetch } from "./state/musicState";
 import Header from "./components/Header";
@@ -11,17 +11,20 @@ function App() {
   const musics = useSelector((state) => state.musics.musics);
   const dispatch = useDispatch();
 
+  const [searchQuery, setSearchquery] = useState("");
+  const handleSearch = (substring) => {
+    setSearchquery(substring);
+  };
   useEffect(() => {
     dispatch(getMusicsFetch());
   }, [dispatch]);
 
-  console.log(musics);
   return (
     <>
-      <Header />
+      <Header handleSearch={handleSearch} />
       <Flex flex={[1, 3]}>
         <Sidebar />
-        <MyComponent />
+        <MyComponent searchQuery={searchQuery} />
       </Flex>
     </>
   );
