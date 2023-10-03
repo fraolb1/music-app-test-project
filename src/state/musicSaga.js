@@ -1,6 +1,7 @@
 import { call, put, takeEvery } from "redux-saga/effects";
 import {
   addMusicSuccess,
+  deleteMusicSuccess,
   editMusicSucces,
   getMusicsSuccess,
 } from "./musicState";
@@ -18,6 +19,16 @@ function* AddMusic(action) {
       axios.post("http://localhost:3000/musics", action.payload)
     );
     yield put(addMusicSuccess(res.data));
+  } catch (error) {
+    console.log(error);
+  }
+}
+function* DeleteMusic(action) {
+  try {
+    yield call(() =>
+      axios.delete(`http://localhost:3000/musics/${action.payload}`)
+    );
+    yield put(deleteMusicSuccess());
   } catch (error) {
     console.log(error);
   }
@@ -49,5 +60,8 @@ function* addMusicSaga() {
 function* editMusicSaga() {
   yield takeEvery("musics/editMusic", EditMusic);
 }
+function* deleteMusicSaga() {
+  yield takeEvery("musics/deleteMusic", DeleteMusic);
+}
 
-export { musicSaga, addMusicSaga, editMusicSaga };
+export { musicSaga, addMusicSaga, editMusicSaga, deleteMusicSaga };

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import { Box, Flex, Heading, Text } from "rebass";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { Box, Button, Flex, Heading, Text } from "rebass";
 import { css } from "@emotion/react";
 import {
   FaPlay,
   FaPause,
   FaArrowAltCircleLeft,
   FaArrowCircleRight,
-  FaBlackTie,
 } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "react-spinner";
+import { deleteMusic, getMusicsFetch } from "../state/musicState";
 
 const MusicDetail = () => {
   const { id } = useParams();
@@ -23,12 +23,19 @@ const MusicDetail = () => {
 
   const dispatch = useDispatch();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     // Fetch the music item when the component mounts
     if (!music) {
       dispatch(getMusicsFetch());
     }
   }, [dispatch, music]);
+
+  const handleDelete = () => {
+    dispatch(deleteMusic(id));
+    navigate("/");
+  };
 
   const backgroundImageUrl = "url(/album-cover.jpg)";
 
@@ -77,46 +84,67 @@ const MusicDetail = () => {
       {isLoading ? (
         <Spinner />
       ) : (
-        <Box css={styles}>
-          <Flex flexDirection='column' alignItems='center'>
-            <Box>Content Goes Here</Box>
-            <Box css={boardStyle}>
-              <Flex flex={[1, 1]} justifyContent={"space-between"}>
-                <Box css={firstBox}>
-                  <img
-                    style={{ borderRadius: "10px" }}
-                    src={"/album-cover.jpg"}
-                    width={50}
-                  />
-                  <Box>
-                    <Heading>{music.title}</Heading>
-                    <Text>{music.artist}</Text>
-                  </Box>
+        <>
+          {music && (
+            <Box css={styles}>
+              <Flex flexDirection='column' alignItems='center'>
+                <Button
+                  onClick={() => handleDelete()}
+                  color={"red"}
+                  fontWeight={"bold"}
+                  style={{ position: "absolute", top: "10px", right: "10px" }}>
+                  Delete
+                </Button>
+
+                <Box css={boardStyle}>
+                  <Flex flex={[1, 1]} justifyContent={"space-between"}>
+                    <Box css={firstBox}>
+                      <img
+                        style={{ borderRadius: "10px" }}
+                        src={"/album-cover.jpg"}
+                        width={50}
+                      />
+                      <Box>
+                        <Heading>{music.title}</Heading>
+                        <Text>{music.artist}</Text>
+                      </Box>
+                    </Box>
+
+                    <Box css={firstBox}>{music.duration}</Box>
+                  </Flex>
+
+                  <Flex
+                    justifyContent={"space-around"}
+                    style={{ marginTop: "30px" }}>
+                    <FaArrowAltCircleLeft
+                      style={{ color: "black" }}
+                      size={50}
+                    />
+                    {isPlaying ? (
+                      <FaPlay
+                        style={{ color: "black" }}
+                        size={50}
+                        onClick={() => setPlaying(!isPlaying)}
+                      />
+                    ) : (
+                      <FaPause
+                        style={{ color: "black" }}
+                        size={50}
+                        onClick={() => setPlaying(!isPlaying)}
+                      />
+                    )}
+                    <Link to={`/${parseInt(id) + 1}`}>
+                      <FaArrowCircleRight
+                        size={50}
+                        style={{ color: "black" }}
+                      />
+                    </Link>
+                  </Flex>
                 </Box>
-
-                <Box css={firstBox}>{music.duration}</Box>
-              </Flex>
-
-              <Flex justifyContent={"space-around"}>
-                <FaArrowAltCircleLeft style={{ color: "black" }} size={50} />
-                {isPlaying ? (
-                  <FaPlay
-                    style={{ color: "black" }}
-                    size={50}
-                    onClick={() => setPlaying(!isPlaying)}
-                  />
-                ) : (
-                  <FaPause
-                    style={{ color: "black" }}
-                    size={50}
-                    onClick={() => setPlaying(!isPlaying)}
-                  />
-                )}
-                <FaArrowCircleRight size={50} style={{ color: "black" }} />
               </Flex>
             </Box>
-          </Flex>
-        </Box>
+          )}
+        </>
       )}
     </>
   );

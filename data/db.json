@@ -1,268 +1,53 @@
 {
   "musics": [
     {
-      "id": 1,
-      "title": "atmetam",
-      "artist": "Artist 1",
-      "album": "Album 1",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:45",
-      "genre": "Pop",
-      "releaseDate": "2022-01-15",
-      "audioUrl": "https://example.com/audio/song1.mp3"
-    },
-    {
       "id": 2,
-      "title": "atmetam",
-      "artist": "Artist 2",
-      "album": "Album 2",
-      "coverImage": "/album-cover.jpg",
-      "duration": "4:20",
-      "genre": "Rock",
-      "releaseDate": "2021-11-30",
-      "audioUrl": "https://example.com/audio/song2.mp3"
+      "title": "yeah",
+      "artist": "Artist 200",
+      "duration": "4:2",
+      "coverImage": "/album-cover.jpg"
     },
     {
       "id": 3,
       "title": "Song Title 3",
       "artist": "Artist 3",
-      "album": "Album 3",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:30",
-      "genre": "R&B",
-      "releaseDate": "2022-03-05",
-      "audioUrl": "https://example.com/audio/song3.mp3"
+      "duration": "3:3",
+      "coverImage": "/album-cover.jpg"
     },
     {
       "id": 4,
       "title": "Song Title 4",
       "artist": "Artist 4",
-      "album": "Album 4",
       "coverImage": "/album-cover.jpg",
-      "duration": "5:10",
-      "genre": "Hip-Hop",
-      "releaseDate": "2021-09-20",
-      "audioUrl": "https://example.com/audio/song4.mp3"
+      "duration": "5:10"
     },
     {
       "id": 5,
       "title": "Song Title 5",
       "artist": "Artist 5",
-      "album": "Album 5",
       "coverImage": "/album-cover.jpg",
-      "duration": "4:00",
-      "genre": "Electronic",
-      "releaseDate": "2022-02-10",
-      "audioUrl": "https://example.com/audio/song5.mp3"
+      "duration": "4:00"
     },
     {
       "id": 6,
       "title": "Song Title 6",
       "artist": "Artist 6",
-      "album": "Album 6",
       "coverImage": "/album-cover.jpg",
-      "duration": "3:15",
-      "genre": "Pop",
-      "releaseDate": "2021-12-25",
-      "audioUrl": "https://example.com/audio/song6.mp3"
+      "duration": "3:15"
     },
     {
       "id": 7,
       "title": "Song Title 7",
       "artist": "Artist 7",
-      "album": "Album 7",
       "coverImage": "/album-cover.jpg",
-      "duration": "4:30",
-      "genre": "Rock",
-      "releaseDate": "2022-04-08",
-      "audioUrl": "https://example.com/audio/song7.mp3"
+      "duration": "4:30"
     },
     {
       "id": 8,
       "title": "Song Title 8",
       "artist": "Artist 8",
-      "album": "Album 8",
       "coverImage": "/album-cover.jpg",
-      "duration": "3:55",
-      "genre": "R&B",
-      "releaseDate": "2021-10-12",
-      "audioUrl": "https://example.com/audio/song8.mp3"
-    },
-    {
-      "id": 9,
-      "title": "Song Title 9",
-      "artist": "Artist 9",
-      "album": "Album 9",
-      "coverImage": "/album-cover.jpg",
-      "duration": "4:45",
-      "genre": "Hip-Hop",
-      "releaseDate": "2022-03-18",
-      "audioUrl": "https://example.com/audio/song9.mp3"
-    },
-    {
-      "id": 10,
-      "title": "Song Title 10",
-      "artist": "Artist 10",
-      "album": "Album 10",
-      "coverImage": "/album-cover.jpg",
-      "duration": "4:15",
-      "genre": "Electronic",
-      "releaseDate": "2021-11-05",
-      "audioUrl": "https://example.com/audio/song10.mp3"
-    },
-    {
-      "id": 11,
-      "title": "Song Title 11",
-      "artist": "Artist 11",
-      "album": "Album 11",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:30",
-      "genre": "Pop",
-      "releaseDate": "2022-02-15",
-      "audioUrl": "https://example.com/audio/song11.mp3"
-    },
-    {
-      "id": 12,
-      "title": "Song Title 12",
-      "artist": "Artist 12",
-      "album": "Album 12",
-      "coverImage": "/album-cover.jpg",
-      "duration": "4:40",
-      "genre": "Rock",
-      "releaseDate": "2021-09-10",
-      "audioUrl": "https://example.com/audio/song12.mp3"
-    },
-    {
-      "id": 13,
-      "title": "Song Title 13",
-      "artist": "Artist 13",
-      "album": "Album 13",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:25",
-      "genre": "R&B",
-      "releaseDate": "2022-01-30",
-      "audioUrl": "https://example.com/audio/song13.mp3"
-    },
-    {
-      "id": 14,
-      "title": "Song Title 14",
-      "artist": "Artist 14",
-      "album": "Album 14",
-      "coverImage": "/album-cover.jpg",
-      "duration": "5:00",
-      "genre": "Hip-Hop",
-      "releaseDate": "2021-12-05",
-      "audioUrl": "https://example.com/audio/song14.mp3"
-    },
-    {
-      "id": 15,
-      "title": "Song Title 15",
-      "artist": "Artist 15",
-      "album": "Album 15",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:55",
-      "genre": "Electronic",
-      "releaseDate": "2022-03-20",
-      "audioUrl": "https://example.com/audio/song15.mp3"
-    },
-    {
-      "id": 16,
-      "title": "Song Title 16",
-      "artist": "Artist 16",
-      "album": "Album 16",
-      "coverImage": "/album-cover.jpg",
-      "duration": "4:10",
-      "genre": "Pop",
-      "releaseDate": "2021-11-15",
-      "audioUrl": "https://example.com/audio/song16.mp3"
-    },
-    {
-      "id": 17,
-      "title": "Song Title 17",
-      "artist": "Artist 17",
-      "album": "Album 17",
-      "coverImage": "/album-cover.jpg",
-      "duration": "4:30",
-      "genre": "Rock",
-      "releaseDate": "2022-02-28",
-      "audioUrl": "https://example.com/audio/song17.mp3"
-    },
-    {
-      "id": 18,
-      "title": "Song Title 18",
-      "artist": "Artist 18",
-      "album": "Album 18",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:40",
-      "genre": "R&B",
-      "releaseDate": "2021-10-25",
-      "audioUrl": "https://example.com/audio/song18.mp3"
-    },
-    {
-      "id": 19,
-      "title": "Song Title 19",
-      "artist": "Artist 19",
-      "album": "Album 19",
-      "coverImage": "/album-cover.jpg",
-      "duration": "4:20",
-      "genre": "Hip-Hop",
-      "releaseDate": "2022-04-10",
-      "audioUrl": "https://example.com/audio/song19.mp3"
-    },
-    {
-      "id": 20,
-      "title": "Song Title 20",
-      "artist": "Artist 20",
-      "album": "Album 20",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:15",
-      "genre": "Electronic",
-      "releaseDate": "2021-12-20",
-      "audioUrl": "https://example.com/audio/song20.mp3"
-    },
-    {
-      "title": "Song Title 1",
-      "artist": "Artist 21",
-      "album": "Album 1",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:45",
-      "genre": "Pop",
-      "releaseDate": "2022-01-15",
-      "audioUrl": "https://example.com/audio/song1.mp3",
-      "id": 21
-    },
-    {
-      "title": "Song Title 1",
-      "artist": "Artist 21",
-      "album": "Album 1",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:45",
-      "genre": "Pop",
-      "releaseDate": "2022-01-15",
-      "audioUrl": "https://example.com/audio/song1.mp3",
-      "id": 22
-    },
-    {
-      "title": "Song Title 1",
-      "artist": "Artist 21",
-      "album": "Album 1",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:45",
-      "genre": "Pop",
-      "releaseDate": "2022-01-15",
-      "audioUrl": "https://example.com/audio/song1.mp3",
-      "id": 23
-    },
-    {
-      "title": "Song Title 1",
-      "artist": "Artist 21",
-      "album": "Album 1",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:45",
-      "genre": "Pop",
-      "releaseDate": "2022-01-15",
-      "audioUrl": "https://example.com/audio/song1.mp3",
-      "id": 24
+      "duration": "3:55"
     }
   ]
 }

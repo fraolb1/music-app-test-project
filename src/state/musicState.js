@@ -24,6 +24,12 @@ const musicState = createSlice({
       state.musics.push(action.payload);
       state.isLoading = false;
     },
+    deleteMusic: (state, action) => {
+      state.isLoading = true;
+    },
+    deleteMusicSuccess: (state, action) => {
+      state.isLoading = false;
+    },
     editMusic: (state, action) => {
       state.isLoading = true;
     },
@@ -54,6 +60,8 @@ export const {
   addMusicSuccess,
   editMusic,
   editMusicSucces,
+  deleteMusic,
+  deleteMusicSuccess,
 } = musicState.actions;
 
 export default musicState.reducer;

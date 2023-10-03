@@ -11,6 +11,7 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import MusicDetail from "./components/MusicDetail";
+import EditMusicForm from "./components/EditPage";
 
 function App() {
   const musics = useSelector((state) => state.musics.musics);
@@ -29,6 +30,7 @@ function App() {
       <Route path='/' element={<RootLayout handleSearch={handleSearch} />}>
         <Route index element={<MyComponent searchQuery={searchQuery} />} />
         <Route path='/:id' element={<MusicDetail />} />
+        <Route path='/:id/edit' element={<EditMusicForm />} />
       </Route>
     )
   );

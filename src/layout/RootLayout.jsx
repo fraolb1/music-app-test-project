@@ -6,9 +6,6 @@ import Sidebar from "../components/Sidebar";
 import { css } from "@emotion/react";
 
 const RootLayout = ({ handleSearch }) => {
-  const textStyle = css`
-    color: black;
-  `;
   return (
     <>
       <Header handleSearch={handleSearch} />

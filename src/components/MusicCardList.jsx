@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Box, Flex, Text } from "rebass";
 import { FaPlayCircle } from "react-icons/fa"; // Import the play button icon
 import { useEffect, useState } from "react";
-import { editMusic } from "../state/musicState";
+import { editMusic, getMusicsFetch } from "../state/musicState";
 import { Link } from "react-router-dom";
 
 const cardStyles = css`
@@ -78,6 +78,10 @@ const MusicCardList = ({ searchQuery }) => {
   const handleEditing = (music) => {
     dispatch(editMusic({ ...music, title: "atmetam" }));
   };
+
+  useEffect(() => {
+    dispatch(getMusicsFetch());
+  }, []);
 
   useEffect(() => {
     if (searchQuery === "") {
