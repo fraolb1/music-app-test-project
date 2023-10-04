@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMusicsFetch } from "./state/musicState";
-import MyComponent from "./components/MyComponent";
+import Home from "./components/Home";
 import "./App.css";
 import RootLayout from "./layout/RootLayout";
 import {
@@ -11,7 +11,8 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import MusicDetail from "./components/MusicDetail";
-import EditMusicForm from "./components/EditPage";
+import EditPage from "./components/EditPage";
+import CreatePage from "./components/CreatePage";
 
 function App() {
   const musics = useSelector((state) => state.musics.musics);
@@ -28,9 +29,10 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path='/' element={<RootLayout handleSearch={handleSearch} />}>
-        <Route index element={<MyComponent searchQuery={searchQuery} />} />
+        <Route index element={<Home searchQuery={searchQuery} />} />
         <Route path='/:id' element={<MusicDetail />} />
-        <Route path='/:id/edit' element={<EditMusicForm />} />
+        <Route path='/:id/edit' element={<EditPage />} />
+        <Route path='/add' element={<CreatePage />} />
       </Route>
     )
   );

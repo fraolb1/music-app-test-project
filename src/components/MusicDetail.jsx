@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "react-spinner";
-import { deleteMusic, getMusicsFetch } from "../state/musicState";
+import { deleteMusic, editMusic, getMusicsFetch } from "../state/musicState";
 
 const MusicDetail = () => {
   const { id } = useParams();
@@ -92,9 +92,27 @@ const MusicDetail = () => {
                   onClick={() => handleDelete()}
                   color={"red"}
                   fontWeight={"bold"}
-                  style={{ position: "absolute", top: "10px", right: "10px" }}>
+                  style={{
+                    position: "absolute",
+                    top: "10px",
+                    right: "10px",
+                    width: "5em",
+                  }}>
                   Delete
                 </Button>
+                <Link to={`/${id}/edit`}>
+                  <Button
+                    color={"green"}
+                    fontWeight={"bold"}
+                    style={{
+                      position: "absolute",
+                      top: "50px",
+                      right: "10px",
+                      width: "5em",
+                    }}>
+                    Edit
+                  </Button>
+                </Link>
 
                 <Box css={boardStyle}>
                   <Flex flex={[1, 1]} justifyContent={"space-between"}>

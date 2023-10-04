@@ -8,7 +8,7 @@ const customStyle = css`
   width: 100%;
 `;
 
-function MyComponent({ searchQuery }) {
+function Home({ searchQuery }) {
   return (
     <Box css={customStyle}>
       <MusicCardList searchQuery={searchQuery} />
@@ -16,4 +16,4 @@ function MyComponent({ searchQuery }) {
   );
 }
 
-export default MyComponent;
+export default Home;

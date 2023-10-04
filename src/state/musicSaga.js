@@ -38,7 +38,7 @@ function* EditMusic(action) {
   try {
     const res = yield call(() => {
       console.log(action.payload);
-      return axios.put(
+      return axios.patch(
         `http://localhost:3000/musics/${action.payload.id}`,
         action.payload
       );

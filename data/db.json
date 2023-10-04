@@ -1,53 +1,67 @@
 {
   "musics": [
     {
+      "id": 1,
+      "artist": "Eminem",
+      "title": "Lose Yourself",
+      "duration": "5:22",
+      "coverImage": "/album-cover.jpg"
+    },
+    {
       "id": 2,
-      "title": "yeah",
-      "artist": "Artist 200",
-      "duration": "4:2",
+      "artist": "Adele",
+      "title": "Hello",
+      "duration": "4:55",
       "coverImage": "/album-cover.jpg"
     },
     {
       "id": 3,
-      "title": "Song Title 3",
-      "artist": "Artist 3",
-      "duration": "3:3",
+      "artist": "Beyoncé",
+      "title": "Single Ladies",
+      "duration": "3:13",
       "coverImage": "/album-cover.jpg"
     },
     {
       "id": 4,
-      "title": "Song Title 4",
-      "artist": "Artist 4",
-      "coverImage": "/album-cover.jpg",
-      "duration": "5:10"
+      "artist": "Ed Sheeran",
+      "title": "Shape of You",
+      "duration": "3:53",
+      "coverImage": "/album-cover.jpg"
     },
     {
       "id": 5,
-      "title": "Song Title 5",
-      "artist": "Artist 5",
-      "coverImage": "/album-cover.jpg",
-      "duration": "4:00"
+      "artist": "Taylor Swift",
+      "title": "Love Story",
+      "duration": "3:56",
+      "coverImage": "/album-cover.jpg"
     },
     {
       "id": 6,
-      "title": "Song Title 6",
-      "artist": "Artist 6",
-      "coverImage": "/album-cover.jpg",
-      "duration": "3:15"
+      "artist": "Bruno Mars",
+      "title": "Uptown Funk",
+      "duration": "4:31",
+      "coverImage": "/album-cover.jpg"
     },
     {
       "id": 7,
-      "title": "Song Title 7",
-      "artist": "Artist 7",
-      "coverImage": "/album-cover.jpg",
-      "duration": "4:30"
+      "artist": "Rihanna",
+      "title": "Umbrella",
+      "duration": "4:35",
+      "coverImage": "/album-cover.jpg"
     },
     {
       "id": 8,
-      "title": "Song Title 8",
-      "artist": "Artist 8",
+      "artist": "The Weeknd",
+      "title": "Blinding Lights",
+      "duration": "3:20",
+      "coverImage": "/album-cover.jpg"
+    },
+    {
+      "title": "another one",
+      "artist": "dj khalid",
+      "duration": "3:30",
       "coverImage": "/album-cover.jpg",
-      "duration": "3:55"
+      "id": 9
     }
   ]
 }

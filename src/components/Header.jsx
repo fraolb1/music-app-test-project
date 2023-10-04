@@ -5,6 +5,7 @@ import { Input } from "@rebass/forms";
 import { useDispatch } from "react-redux";
 import { addMusic } from "../state/musicState";
 import { Link } from "react-router-dom";
+import { FaPlusCircle } from "react-icons/fa";
 
 const headerStyle = css`
   background-color: #f3f4f6;
@@ -34,20 +35,6 @@ const textStyle = css`
 `;
 
 const Header = ({ handleSearch }) => {
-  const dispatch = useDispatch();
-  const data = {
-    title: "Song Title 1",
-    artist: "Artist 21",
-    album: "Album 1",
-    coverImage: "https://example.com/cover-image-1.jpg",
-    duration: "3:45",
-    genre: "Pop",
-    releaseDate: "2022-01-15",
-    audioUrl: "https://example.com/audio/song1.mp3",
-  };
-  const handleAdd = () => {
-    dispatch(addMusic(data));
-  };
   return (
     <Flex css={headerStyle} alignItems={"center"}>
       <Box css={logoStyle}>
@@ -73,11 +60,22 @@ const Header = ({ handleSearch }) => {
           }}
         />
       </Box>
-      <Button onClick={handleAdd}>Add</Button>
+
       <Box css={avatarStyle}>
-        <Text ml={15} fontSize='24px'>
-          USER A
-        </Text>
+        <Link to={"/add"}>
+          <Button
+            css={css`
+              padding: 0;
+            `}>
+            <FaPlusCircle
+              css={css`
+                color: green;
+                border-radius: 50%;
+              `}
+              size={40}
+            />
+          </Button>
+        </Link>
       </Box>
     </Flex>
   );

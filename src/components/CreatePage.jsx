@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Box, Button } from "rebass";
 import { Input, Label } from "@rebass/forms";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { editMusic, getMusicsFetch } from "../state/musicState";
+import { useDispatch } from "react-redux";
+import { addMusic } from "../state/musicState";
+import { useNavigate } from "react-router-dom";
 
 const formStyle = css`
   width: 100%;
@@ -18,25 +18,14 @@ const inputStyle = css`
   margin-bottom: 20px;
 `;
 
-const EditPage = () => {
-  const { id } = useParams();
-  const { musics, isLoading } = useSelector((state) => state.musics);
-
-  const music = musics.filter((music) => music.id == id)[0];
-
+const CreatePage = () => {
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getMusicsFetch());
-  }, [dispatch]);
-
-  console.log(music);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    id: id,
-    title: music ? music.title : "",
-    artist: music ? music.artist : "",
-    duration: music ? music.duration : "",
+    title: "",
+    artist: "",
+    duration: "",
     coverImage: "/album-cover.jpg",
   });
 
@@ -50,7 +39,8 @@ const EditPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(editMusic(formData));
+    dispatch(addMusic(formData));
+    navigate("/");
   };
 
   return (
@@ -92,4 +82,4 @@ const EditPage = () => {
   );
 };
 
-export default EditPage;
+export default CreatePage;
