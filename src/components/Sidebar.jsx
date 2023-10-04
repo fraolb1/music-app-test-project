@@ -28,12 +28,10 @@ const sidebarItemStyle = css`
 const Sidebar = () => {
   return (
     <Flex css={sidebarStyle} flexDirection='column'>
-      {/* Library Section */}
       <Box css={sectionTitleStyle}>
         <Text fontWeight='bold'>Library</Text>
       </Box>
 
-      {/* Home and About under Playlist */}
       <Box css={sidebarItemStyle}>
         <Text>Home</Text>
       </Box>
@@ -41,7 +39,6 @@ const Sidebar = () => {
         <Text>About</Text>
       </Box>
 
-      {/* Multiple Playlists under Playlist */}
       <Box css={sectionTitleStyle}>
         <Text fontWeight='bold'>Playlists</Text>
       </Box>
@@ -54,7 +51,6 @@ const Sidebar = () => {
       <Box css={sidebarItemStyle}>
         <Text>Playlist 3</Text>
       </Box>
-      {/* Add more playlists as needed */}
     </Flex>
   );
 };

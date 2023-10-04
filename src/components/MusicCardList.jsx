@@ -1,8 +1,7 @@
-/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Flex, Text } from "rebass";
-import { FaPlayCircle } from "react-icons/fa"; // Import the play button icon
+import { FaPlayCircle } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { editMusic, getMusicsFetch } from "../state/musicState";
 import { Link } from "react-router-dom";
