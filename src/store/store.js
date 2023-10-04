@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import musicReducer from "../state/musicState";
+import generalReducer from "../state/generalState";
 import {
   addMusicSaga,
   deleteMusicSaga,
@@ -18,6 +19,7 @@ function* rootSaga() {
 const store = configureStore({
   reducer: {
     musics: musicReducer,
+    general: generalReducer,
   },
   middleware: [saga],
 });

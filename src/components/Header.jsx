@@ -2,16 +2,10 @@
 import { css } from "@emotion/react";
 import { Box, Button, Flex, Text } from "rebass";
 import { Input } from "@rebass/forms";
-import { useDispatch } from "react-redux";
-import { addMusic } from "../state/musicState";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FaPlusCircle } from "react-icons/fa";
-
-const headerStyle = css`
-  background-color: #f3f4f6;
-  color: #000;
-  padding: 15px;
-`;
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const logoStyle = css`
   flex: 1;
@@ -30,11 +24,19 @@ const avatarStyle = css`
   justify-content: flex-end;
 `;
 
-const textStyle = css`
-  color: black;
-`;
-
 const Header = ({ handleSearch }) => {
+  const { darkMode } = useSelector((state) => state.general);
+  const headerStyle = css`
+    background-color: ${darkMode ? "black" : "#f3f4f6"};
+    color: ${darkMode ? "white" : "#000"};
+    padding: 15px;
+    border-bottom: 1px white solid;
+  `;
+
+  const textStyle = css`
+    color: ${darkMode ? "white" : "black"};
+  `;
+
   return (
     <Flex css={headerStyle} alignItems={"center"}>
       <Box css={logoStyle}>
@@ -66,10 +68,11 @@ const Header = ({ handleSearch }) => {
           <Button
             css={css`
               padding: 0;
+              background-color: ${darkMode ? "black" : "white"};
             `}>
             <FaPlusCircle
               css={css`
-                color: green;
+                color: ${darkMode ? "white" : "green"};
                 border-radius: 50%;
               `}
               size={40}

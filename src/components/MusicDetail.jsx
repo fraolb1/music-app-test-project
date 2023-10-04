@@ -19,6 +19,8 @@ const MusicDetail = () => {
 
   const { musics, isLoading } = useSelector((state) => state.musics);
 
+  const { darkMode } = useSelector((state) => state.general);
+
   const music = musics.filter((music) => music.id == id)[0];
 
   const dispatch = useDispatch();
@@ -26,7 +28,6 @@ const MusicDetail = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch the music item when the component mounts
     if (!music) {
       dispatch(getMusicsFetch());
     }
@@ -49,20 +50,20 @@ const MusicDetail = () => {
 
   const styles = css`
     background: ${gradientBackground};
-    background-size: 100% auto; /* Cover full screen width, maintain height */
+    background-size: 100% auto;
     background-position: center;
     width: 100%;
-    min-height: 100vh; /* Use vh (viewport height) instead of % */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #fff;
-    position: relative; /* Make sure the child elements are positioned relative to this container */
+    position: relative;
   `;
 
   const boardStyle = css`
     position: absolute;
-    background-color: white;
+    background-color: ${darkMode ? "black" : "white"};
     bottom: 0;
     right: 0;
     left: 0;
@@ -75,7 +76,7 @@ const MusicDetail = () => {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #000;
+    color: ${darkMode ? "white" : "#000"};
     gap: 20px;
   `;
 
@@ -134,27 +135,32 @@ const MusicDetail = () => {
                   <Flex
                     justifyContent={"space-around"}
                     style={{ marginTop: "30px" }}>
-                    <FaArrowAltCircleLeft
-                      style={{ color: "black" }}
-                      size={50}
-                    />
+                    <Link to={id - 1 > 0 ? `/${parseInt(id) - 1}` : `/${id}`}>
+                      <FaArrowAltCircleLeft
+                        style={{ color: `${darkMode ? "white" : "black"}` }}
+                        size={50}
+                      />
+                    </Link>
                     {isPlaying ? (
                       <FaPlay
-                        style={{ color: "black" }}
+                        style={{ color: `${darkMode ? "white" : "black"}` }}
                         size={50}
                         onClick={() => setPlaying(!isPlaying)}
                       />
                     ) : (
                       <FaPause
-                        style={{ color: "black" }}
+                        style={{ color: `${darkMode ? "white" : "black"}` }}
                         size={50}
                         onClick={() => setPlaying(!isPlaying)}
                       />
                     )}
-                    <Link to={`/${parseInt(id) + 1}`}>
+                    <Link
+                      to={
+                        id < musics.length ? `/${parseInt(id) + 1}` : `/${id}`
+                      }>
                       <FaArrowCircleRight
                         size={50}
-                        style={{ color: "black" }}
+                        style={{ color: `${darkMode ? "white" : "black"}` }}
                       />
                     </Link>
                   </Flex>

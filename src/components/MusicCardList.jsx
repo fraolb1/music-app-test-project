@@ -7,21 +7,6 @@ import { useEffect, useState } from "react";
 import { editMusic, getMusicsFetch } from "../state/musicState";
 import { Link } from "react-router-dom";
 
-const cardStyles = css`
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 10px;
-  width: 250px;
-  background-color: white;
-  transition: box-shadow 0.5s ease-in-out;
-  transition: width 0.5s ease-in-out;
-  &:hover {
-    box-shadow: 0 10px 14px rgba(0, 0, 0, 0.9);
-  }
-`;
-
 const artistNameStyles = css`
   margin-top: 10px;
   font-weight: bold;
@@ -47,6 +32,22 @@ const textStyle = css`
 `;
 
 const Card = ({ artist, trackName, coverImage }) => {
+  const { darkMode } = useSelector((state) => state.general);
+  const cardStyles = css`
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    background-color: ${darkMode ? "black" : "white"};
+    color: ${darkMode ? "white" : "black"};
+    transition: box-shadow 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    &:hover {
+      box-shadow: 0 10px 14px rgba(0, 0, 0, 0.9);
+    }
+  `;
   return (
     <Box css={cardStyles}>
       <img
@@ -72,7 +73,6 @@ const Card = ({ artist, trackName, coverImage }) => {
 const MusicCardList = ({ searchQuery }) => {
   const musics = useSelector((state) => state.musics.musics);
   const [display, setDisplay] = useState([]);
-  console.log(searchQuery);
 
   const dispatch = useDispatch();
   const handleEditing = (music) => {

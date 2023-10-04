@@ -7,17 +7,6 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { editMusic, getMusicsFetch } from "../state/musicState";
 
-const formStyle = css`
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-`;
-
-const inputStyle = css`
-  width: 100%;
-  margin-bottom: 20px;
-`;
-
 const EditPage = () => {
   const { id } = useParams();
   const { musics, isLoading } = useSelector((state) => state.musics);
@@ -30,7 +19,19 @@ const EditPage = () => {
     dispatch(getMusicsFetch());
   }, [dispatch]);
 
-  console.log(music);
+  const { darkMode } = useSelector((state) => state.general);
+
+  const formStyle = css`
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: ${darkMode ? "black" : "white"};
+    color: ${darkMode ? "white" : "black"};
+  `;
+  const inputStyle = css`
+    width: 100%;
+    margin-bottom: 20px;
+  `;
 
   const [formData, setFormData] = useState({
     id: id,

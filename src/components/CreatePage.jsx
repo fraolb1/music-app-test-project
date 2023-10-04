@@ -3,15 +3,9 @@ import { css } from "@emotion/react";
 import { useState } from "react";
 import { Box, Button } from "rebass";
 import { Input, Label } from "@rebass/forms";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addMusic } from "../state/musicState";
 import { useNavigate } from "react-router-dom";
-
-const formStyle = css`
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-`;
 
 const inputStyle = css`
   width: 100%;
@@ -42,6 +36,15 @@ const CreatePage = () => {
     dispatch(addMusic(formData));
     navigate("/");
   };
+
+  const { darkMode } = useSelector((state) => state.general);
+  const formStyle = css`
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    background: ${darkMode ? "black" : "white"};
+    color: ${darkMode ? "white" : "black"};
+  `;
 
   return (
     <Box as='form' css={formStyle} onSubmit={handleSubmit}>

@@ -4,12 +4,18 @@ import { Outlet } from "react-router-dom";
 import { Flex } from "rebass";
 import Sidebar from "../components/Sidebar";
 import { css } from "@emotion/react";
+import { useSelector } from "react-redux";
 
 const RootLayout = ({ handleSearch }) => {
+  const { darkMode } = useSelector((state) => state.general);
   return (
     <>
       <Header handleSearch={handleSearch} />
-      <Flex flex={[1, 3]}>
+      <Flex
+        css={css`
+          background-color: ${darkMode ? "black" : "white"};
+        `}
+        flex={[1, 3]}>
         <Sidebar />
         <Outlet />
       </Flex>
