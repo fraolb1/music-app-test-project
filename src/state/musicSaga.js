@@ -8,7 +8,7 @@ import {
 import axios from "axios";
 
 function* GetMusicsFetch() {
-  const musics = yield call(() => fetch("http://localhost:3000/musics"));
+  const musics = yield call(() => fetch("https://musicsapi.vercel.app/musics"));
   const formattedMusic = yield musics.json();
   yield put(getMusicsSuccess(formattedMusic));
 }
@@ -16,7 +16,7 @@ function* GetMusicsFetch() {
 function* AddMusic(action) {
   try {
     const res = yield call(() =>
-      axios.post("http://localhost:3000/musics", action.payload)
+      axios.post("https://musicsapi.vercel.app/musics", action.payload)
     );
     yield put(addMusicSuccess(res.data));
   } catch (error) {
@@ -26,7 +26,7 @@ function* AddMusic(action) {
 function* DeleteMusic(action) {
   try {
     yield call(() =>
-      axios.delete(`http://localhost:3000/musics/${action.payload}`)
+      axios.delete(`https://musicsapi.vercel.app/musics/${action.payload}`)
     );
     yield put(deleteMusicSuccess());
   } catch (error) {
@@ -39,7 +39,7 @@ function* EditMusic(action) {
     const res = yield call(() => {
       console.log(action.payload);
       return axios.patch(
-        `http://localhost:3000/musics/${action.payload.id}`,
+        `https://musicsapi.vercel.app/musics/${action.payload.id}`,
         action.payload
       );
     });
