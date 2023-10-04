@@ -42,7 +42,7 @@ const Header = ({ handleSearch }) => {
       <Box css={logoStyle}>
         <Text fontSize='24px' fontWeight='bold'>
           <Link css={textStyle} to='/'>
-            Music
+            Musix
           </Link>
         </Text>
       </Box>
