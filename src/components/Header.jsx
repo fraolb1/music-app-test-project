@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FaPlusCircle } from "react-icons/fa";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { toggleDarkMode } from "../state/generalState";
+
 
 const logoStyle = css`
   flex: 1;
@@ -25,7 +27,9 @@ const avatarStyle = css`
 `;
 
 const Header = ({ handleSearch }) => {
+
   const { darkMode } = useSelector((state) => state.general);
+  const dispatch = useDispatch()
   const headerStyle = css`
     background-color: ${darkMode ? "black" : "#f3f4f6"};
     color: ${darkMode ? "white" : "#000"};
@@ -64,6 +68,9 @@ const Header = ({ handleSearch }) => {
       </Box>
 
       <Box css={avatarStyle}>
+        
+        <label style={{margin:'0 1.2rem'}} onClick={() => dispatch(toggleDarkMode(!darkMode))} >{darkMode ? <FaSun size={37} /> : <FaMoon size={37} />}</label>
+
         <Link to={"/add"}>
           <Button
             css={css`

@@ -3,7 +3,7 @@ import React from "react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Flex, Text } from "rebass";
-import { toggleDarkMode } from "../state/generalState";
+// import { toggleDarkMode } from "../state/generalState";
 
 const sectionTitleStyle = css`
   padding: 10px;
@@ -24,9 +24,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   const { darkMode } = useSelector((state) => state.general);
-  const handleDark = () => {
-    dispatch(toggleDarkMode(!darkMode));
-  };
+ 
   const sidebarStyle = css`
     width: 250px;
     background-color: ${darkMode ? "black" : "#f3f4f6"};
@@ -60,13 +58,12 @@ const Sidebar = () => {
         <Text>Playlist 3</Text>
       </Box>
       <Box
-        onClick={() => handleDark()}
+        
         css={css`
           display: flex;
           align-self: center;
           margin-top: 30px;
         `}>
-        {darkMode ? <FaSun size={40} /> : <FaMoon size={40} />}
       </Box>
     </Flex>
   );
